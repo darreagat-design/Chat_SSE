@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Generacion progresiva con SSE</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="intro">
+        <p class="eyebrow">Sprint 1</p>
+        <h1>Generacion progresiva con SSE</h1>
+        <p>
+          Interfaz para ver una respuesta generada progresivamente desde la API NestJS
+          hacia el navegador.
+        </p>
+      </section>
+
+      <section class="workspace" aria-label="Formulario de generacion">
+        <label for="message">Mensaje</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="7"
+          maxlength="2000"
+          placeholder="Escribe un mensaje para generar una respuesta progresiva"
+        ></textarea>
+
+        <div class="actions">
+          <button id="generateButton" type="button">Generar</button>
+          <button id="stopButton" type="button" disabled>Detener</button>
+        </div>
+
+        <div class="status-panel" aria-live="polite">
+          <span>Estado:</span>
+          <strong id="status">Listo</strong>
+        </div>
+
+        <div class="states" aria-label="Estados previstos">
+          <span>Esperando</span>
+          <span>Generando</span>
+          <span>Completado</span>
+          <span>Interrumpido</span>
+        </div>
+
+        <section class="response" aria-label="Respuesta">
+          <h2>Respuesta</h2>
+          <p id="responseOutput">La respuesta aparecera aqui.</p>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
