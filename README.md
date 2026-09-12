@@ -6,8 +6,12 @@ El backend recibe un prompt, abre un stream real con OpenAI Responses API y conv
 
 ## Flujo
 
-```text
-Navegador -> API propia NestJS -> OpenAI -> API propia NestJS -> Navegador
+```mermaid
+flowchart LR
+  A[Navegador] -->|POST /api/generate| B[API propia NestJS]
+  B -->|Responses API streaming| C[OpenAI]
+  C -->|response.output_text.delta| B
+  B -->|SSE: status/content/completed| A
 ```
 
 ## Tecnologias
